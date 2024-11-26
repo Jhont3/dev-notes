@@ -1,6 +1,6 @@
 # Etapas de Pipelines en MongoDB
 
-#### Filtrado y Búsqueda
+### Filtrado y Búsqueda
 
 - __$match:__ Filtra documentos según un criterio
 
@@ -8,7 +8,7 @@
 db.collection.aggregate([{ $match: { age: { $gt: 25 } } }]);
 ```
 
-####  Proyección de Campos
+###  Proyección de Campos
 
 - __$project:__ Selecciona o calcula campos específicos para incluir o excluir en los resultados.
 
@@ -19,7 +19,7 @@ db.collection.aggregate([
 ```
 Incluye los campos name y age, y calcula un nuevo campo isAdult
 
-#### Agrupación
+### Agrupación
 
 - __$group:__ Agrupa documentos por un campo y aplica operaciones de agregación como sum, avg, max, min, etc.
 
@@ -30,7 +30,7 @@ db.collection.aggregate([
 ```
 Agrupa documentos por category y suma el valor de price.
 
-#### Ordenación
+### Ordenación
 
 - __$sort:__ Ordena los documentos por uno o más campos.
 
@@ -40,7 +40,7 @@ db.collection.aggregate([
 ]);
 ```
 
-#### Limitación y Salto de Documentos
+### Limitación y Salto de Documentos
 
 - __$limit:__ Limita el número de documentos en la salida.
 
@@ -54,7 +54,7 @@ db.collection.aggregate([{ $limit: 5 }]);
 db.collection.aggregate([{ $skip: 10 }]);
 ```
 
-#### Descomposición
+### Descomposición
 
 - __$unwind:__ Divide documentos que tienen arrays en múltiples documentos, uno por cada elemento del array.
 
@@ -64,7 +64,7 @@ db.collection.aggregate([{ $unwind: "$tags" }]);
 
 Si un documento tiene un campo tags: ["A", "B"], produce dos documentos separados.
 
-#### Búsquedas en Documentos Asociados
+### Búsquedas en Documentos Asociados
 
 - __$lookup:__ Realiza un "join" con otra colección.
 
@@ -82,7 +82,7 @@ db.orders.aggregate([
 ]);
 ```
 
-#### Agregación en Series Temporales
+### Agregación en Series Temporales
 
 - __$bucket:__ Agrupa documentos en rangos definidos manualmente.
 
@@ -104,7 +104,7 @@ db.collection.aggregate([
 db.collection.aggregate([{ $bucketAuto: { groupBy: "$price", buckets: 3 } }]);
 ```
 
-#### Procesamiento de Muestras
+### Procesamiento de Muestras
 
 - __$sample:__ Selecciona documentos aleatorios.
 
@@ -112,7 +112,7 @@ db.collection.aggregate([{ $bucketAuto: { groupBy: "$price", buckets: 3 } }]);
 db.collection.aggregate([{ $sample: { size: 5 } }]);
 ```
 
-#### Manipulación de Datos
+### Manipulación de Datos
 
 - __$addFields:__ Agrega nuevos campos calculados a los documentos.
 
@@ -124,7 +124,7 @@ db.collection.aggregate([
 
 - __$set:__ Similar a $addFields, pero también puede actualizar campos existentes.
 
-#### Fusión y Salida
+### Fusión y Salida
 
 - __$merge:__ Fusiona los resultados con otra colección.
 
@@ -156,7 +156,7 @@ db.sales.aggregate([
 ]);
 ```
 
-#### Otros:
+### Otros:
 
 - __$geoNear__
 
