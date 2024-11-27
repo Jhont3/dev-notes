@@ -4,40 +4,43 @@ Samantha interviews many candidates from different colleges using coding challen
 
 Note: A specific contest can be used to screen candidates at more than one college, but each college only holds  screening contest.
 
-Input Format
+#### Input Format
 
 The following tables hold interview data:
 
-Contests: The contest_id is the id of the contest, hacker_id is the id of the hacker who created the contest, and name is the name of the hacker. 
+__Contests:__ The contest_id is the id of the contest, hacker_id is the id of the hacker who created the contest, and name is the name of the hacker. 
 
 ![1](/public/sql/joins/interview_contests.png)
 
-Colleges: The college_id is the id of the college, and contest_id is the id of the contest that Samantha used to screen the candidates. 
+__Colleges:__ The college_id is the id of the college, and contest_id is the id of the contest that Samantha used to screen the candidates. 
 
 ![2](/public/sql/joins/interview_colleges.png)
 
-Challenges: The challenge_id is the id of the challenge that belongs to one of the contests whose contest_id Samantha forgot, and college_id is the id of the college where the challenge was given to candidates. 
+__Challenges:__ The challenge_id is the id of the challenge that belongs to one of the contests whose contest_id Samantha forgot, and college_id is the id of the college where the challenge was given to candidates. 
 
 ![3](/public/sql/joins/interview_challenges.png)
 
-View_Stats: The challenge_id is the id of the challenge, total_views is the number of times the challenge was viewed by candidates, and total_unique_views is the number of times the challenge was viewed by unique candidates. 
+__View_Stats:__ The challenge_id is the id of the challenge, total_views is the number of times the challenge was viewed by candidates, and total_unique_views is the number of times the challenge was viewed by unique candidates. 
 
-![4](/public/sql/joins/demo.png)
+![4](/public/sql/joins/interview_view_stats.png)
 
-Submission_Stats: The challenge_id is the id of the challenge, total_submissions is the number of submissions for the challenge, and total_accepted_submission is the number of submissions that achieved full scores. 
+__Submission_Stats:__ The challenge_id is the id of the challenge, total_submissions is the number of submissions for the challenge, and total_accepted_submission is the number of submissions that achieved full scores. 
 
-![5](/public/sql/joins/demo.png)
+![5](/public/sql/joins/interview_submission_stats.png)
 
-Sample Input
+#### Sample Input
 
 Contests Table:  Colleges Table:  Challenges Table:  View_Stats Table:  Submission_Stats Table: 
 
-Sample Output
+#### Sample Output
 
+```terminal
 66406 17973 Rose 111 39 156 56
 66556 79153 Angela 0 0 11 10
 94828 80275 Frank 150 38 41 15
-Explanation
+```
+
+### Explanation
 
 The contest  is used in the college . In this college , challenges  and  are asked, so from the view and submission stats:
 
@@ -51,6 +54,7 @@ Sum of total unique views
 
 Similarly, we can find the sums for contests  and .
 
+```sql
 WITH total_submit AS (
     SELECT
         coll.contest_id,
@@ -96,8 +100,9 @@ WHERE
     OR ISNULL(tv.sum_total_unique_views, 0) > 0
 ORDER BY
     cont.contest_id;
+```
 
-
+```terminal
 Correct Output:
 845 579 Rose 1987 580 1635 566
 858 1053 Angela 703 160 1002 384
@@ -146,7 +151,9 @@ Correct Output:
 18855 16973 Lawrence 2967 1020 3371 1011
 19097 17123 Marilyn 2956 807 2554 750
 19575 17562 Lori 2590 863 2627 760
+```
 
+```terminal
 1 SQ
 18855 2967 1020
 4483 1911 572
@@ -195,7 +202,9 @@ Correct Output:
 10568 1907 620
 7831 3190 883
 4044 1323 449
+```
 
+```terminal
 2 SQ
 18855 3371 1011
 4483 1644 477
@@ -244,3 +253,4 @@ Correct Output:
 10568 2577 798
 7831 2933 1012
 4044 1722 528
+```
