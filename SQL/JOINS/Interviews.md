@@ -10,23 +10,23 @@ The following tables hold interview data:
 
 Contests: The contest_id is the id of the contest, hacker_id is the id of the hacker who created the contest, and name is the name of the hacker. 
 
-![1](../../../../public/sql/joins/interview_contests.png)
+![1](/public/sql/joins/interview_contests.png)
 
 Colleges: The college_id is the id of the college, and contest_id is the id of the contest that Samantha used to screen the candidates. 
 
-![2](../../../../public/sql/joins/interview_colleges.png)
+![2](/public/sql/joins/interview_colleges.png)
 
 Challenges: The challenge_id is the id of the challenge that belongs to one of the contests whose contest_id Samantha forgot, and college_id is the id of the college where the challenge was given to candidates. 
 
-![3](../../../../public/sql/joins/interview_challenges.png)
+![3](/public/sql/joins/interview_challenges.png)
 
 View_Stats: The challenge_id is the id of the challenge, total_views is the number of times the challenge was viewed by candidates, and total_unique_views is the number of times the challenge was viewed by unique candidates. 
 
-![4](../../../../public/sql/joins/demo.png)
+![4](/public/sql/joins/demo.png)
 
 Submission_Stats: The challenge_id is the id of the challenge, total_submissions is the number of submissions for the challenge, and total_accepted_submission is the number of submissions that achieved full scores. 
 
-![5](../../../../public/sql/joins/demo.png)
+![5](/public/sql/joins/demo.png)
 
 Sample Input
 
